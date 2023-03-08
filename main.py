@@ -9,8 +9,8 @@ from typing import Union
 load_dotenv()
 app = FastAPI()
 
-# if __name__ == "__main__":
-#     uvicorn.run("main:app", host="127.0.0.1", port=5500, reload=True)
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="127.0.0.1", port=5500, reload=True)
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
