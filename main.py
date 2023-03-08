@@ -10,7 +10,7 @@ load_dotenv()
 app = FastAPI()
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="127.0.0.1", port=8800, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=5500, reload=True)
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -33,6 +33,6 @@ class Prompt(BaseModel):
 async def root():
     return {"message": "Welcome to ChatGPT FastAPI"}
   
-@app.post("/new/")
+@app.post("/")
 async def hello(prompt: Prompt):
-    return prompt
+    return chatgpt(prompt)
