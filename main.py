@@ -31,4 +31,7 @@ async def root():
   
 @app.post("/")
 async def hello(prompt: Prompt):
-    return chatgpt(prompt)
+    try:
+      return {"ChatGPT": chatgpt(prompt)}
+    except NameError:
+      return {"Error": NameError}
